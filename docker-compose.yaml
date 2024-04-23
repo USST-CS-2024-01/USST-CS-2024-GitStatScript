@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  git_stat:
+    build: .
+    container_name: git_stat
+    environment:
+      - KAFKA_HOST=192.168.19.2
+      - KAFKA_PORT=9092
+      - MYSQL_HOST=192.168.19.2
+    restart: always
