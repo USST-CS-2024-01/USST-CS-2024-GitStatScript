@@ -73,4 +73,7 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
     while True:
         for msg in consumer:
-            start_task(msg.value)
+            try:
+                start_task(msg.value)
+            except Exception as e:
+                logging.error(f"Error processing message [{msg.value}]: {e}")
